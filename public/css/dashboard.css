@@ -1,0 +1,11 @@
+.dashboard{
+  text-align: center;
+}
+.dashboard .container img{
+  border-radius: 50%;
+  width: 200px;
+
+}
+.dashboard .container .details-section{
+  background: #333;
+}

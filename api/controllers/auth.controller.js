@@ -29,7 +29,8 @@ exports.Signup = async(req, res, next) => {
     joined : dateJoined
   })
   await createUser.save();
-  res.status(201).send(createUser);
+  // res.status(201).send(createUser);
+  res.status(201).redirect('/signin')
 
   } catch (err){
     next(err)
@@ -49,10 +50,10 @@ exports.Signin = async(req, res, next) => {
 
     // else create session
     req.session.userId = user._id
-    return res.redirect('/')
+    return res.redirect('/dashboard')
     
     
-  } catch (errs) {
+  } catch (err) {
     next(err)
   }
 

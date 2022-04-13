@@ -8,9 +8,11 @@ const expressLayouts = require('express-ejs-layouts');
 const mongoose = require('mongoose');
 const mongosession = require('connect-mongodb-session')(session)
 const {secretKey} = require('./api/middlewares/config')
+const { body, validationResult } = require('express-validator');
 require('dotenv').config();
 
-const PORT = process.env.PORT || 3000
+
+const PORT = process.env.PORT || 4000
 const app = express()
 
 // MongoDB Config
@@ -31,6 +33,7 @@ const store = new mongosession({
 
 app.use(session({
   secret : secretKey ,
+  cookie : {maxAge : 60000},
   resave : false,
   saveUninitialized : false,
   store : store
@@ -41,7 +44,8 @@ app.use(expressLayouts);
 app.set('view engine', 'ejs');
 
 // routes
-const authRoute = require('./api/routes/auth.routes')
+const authRoute = require('./api/routes/auth.routes');
+const { cloudinaryConfig } = require('./api/config/cloudinaryConfig');
 
 
 app.use(logger('dev'));
@@ -49,6 +53,9 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static('public'));
 app.use('/css', express.static(__dirname + 'public/css'));
+app.use('/js', express.static(__dirname + 'public/js'));
+app.use('/img', express.static(__dirname + 'public/img'));
+app.use('*', cloudinaryConfig);
 
 
 app.get('/', (req, res) => {
@@ -64,6 +71,7 @@ app.use(function(req, res, next) {
 // error handler
 app.use(function(err, req, res, next) {
   res.status(err.status || 500 );
+  console.log(err)
   res.render('error', {
     status : err.status || 500,
     message : err.message
