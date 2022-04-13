@@ -6,7 +6,6 @@ const createError = require("http-errors")
     }
     else{
       // throw createError(500, "please Login")
-      console.log('no auth')
       res.status(404).redirect('/signin')
     }
 
