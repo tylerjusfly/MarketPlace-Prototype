@@ -51,6 +51,17 @@ following: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }],
 balance : { type : Number, default: 0.00 }
 })
 
+// UserSchema.statics.usernameExist = async function(username){
+//   try {
+//     const user = await this.findone({username})
+//     if(user) {return false}
+//     //else
+//     return true;
+
+//   } catch (error) {
+//     return false;
+//   }
+// }
 
 const User = mongoose.model('User', UserSchema)
 

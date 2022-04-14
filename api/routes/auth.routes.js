@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const { Signup, Signin } = require('../controllers/auth.controller');
-const { myProfile, editAvatar } = require('../controllers/user.controller');
+const { myProfile, viewUserProfile, getallUser } = require('../controllers/user.controller');
 const {requireLogin} = require('../middlewares/authCheck');
 const {multerUploads} = require('../config/multer')
 
@@ -16,7 +16,10 @@ router.post('/signin', Signin);
 
 router.get('/dashboard', requireLogin, myProfile)
 
-router.post('/uploads', multerUploads, editAvatar)
+// router.post('/uploads', multerUploads, editAvatar)
+router.get('/users/:uid', viewUserProfile);
+
+router.get('/users', getallUser);
 
 
 

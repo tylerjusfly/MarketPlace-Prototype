@@ -5,7 +5,7 @@ const createError = require('http-errors')
 
 exports.Signup = async(req, res, next) => {
   let { firstname, lastname, username, email, password, repeat_password} = req.body
-
+  
   try {
      // Checking if passwords match
      if( password !== repeat_password){
@@ -14,6 +14,7 @@ exports.Signup = async(req, res, next) => {
 
     let user = await User.findOne({email});
     if(user){throw createError(422, "User already exists")}
+    await User.findOne({username});
 
     // hash password
     const salt = await bcrypt.genSalt(10);

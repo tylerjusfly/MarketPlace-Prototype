@@ -1,5 +1,4 @@
 const express = require('express');
-const path = require('path');
 const createError = require('http-errors');
 const logger = require('morgan');
 const ejs = require('ejs');
@@ -12,7 +11,6 @@ const { body, validationResult } = require('express-validator');
 require('dotenv').config();
 
 
-const PORT = process.env.PORT || 4000
 const app = express()
 
 // MongoDB Config
@@ -80,16 +78,4 @@ app.use(function(err, req, res, next) {
 });
 
 
-const start = async () => {
-  try {
-    const db = await connectDB(url);
-    if(db) console.log('connect to db')
-    app.listen(PORT, () => {
-      console.log(`Server listening on port: ${PORT}`);
-    });
-  } catch (error) {
-    console.log(error);
-  }
-};
-
-start();
+module.exports = {app, url, connectDB}
