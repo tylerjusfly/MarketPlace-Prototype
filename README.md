@@ -8,3 +8,5 @@ Although the designs sucks , but its really all about the functionality
 `User can follow and unfollow`
 
 `Users can view other users profile with a search by email`
+
+`Implemented a few test cases`
