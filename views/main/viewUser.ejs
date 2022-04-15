@@ -4,9 +4,35 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/dashboard.css">
   <title> user </title>
 </head>
 <body>
-  
+  <section class="dashboard">
+    <div class="container">
+      <h2>welocome to <%= user.firstname %> page </h2>
+      <img src=<%= user.profilepicture %> alt="avatar">
+      <div class="details-section">
+        <h3> <%= user.firstname %> <%= user.lastname %></h3>
+        <h4> Joined : <%= user.joined %></h4>
+        <a href="#">Followers : <%= user.followers.length %></a>
+        <a href="#">Following : <%= user.following.length %></a>
+        <h5>Username : <%= user.username %></h5>
+        <h5>Email : <%= user.email %></h5>
+        <h5>Bio : <%= user.bio %></h5>
+        <button class="follow-user" value="<%= user._id %>">
+         follow User
+        </button>
+        <button class="unfollow-user" value="<%= user._id %>">
+          unfollow User
+         </button>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <script src="/js/followuser.js"></script>
 </body>
 </html>

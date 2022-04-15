@@ -1,11 +1,11 @@
 const createError = require("http-errors")
 
   const requireLogin = (req, res, next) => {
-    if(req.session.userId){
+    if(req.session && req.session.userId){
       next()
     }
     else{
-      // throw createError(500, "please Login")
+      // res.status(400).json("not login")
       res.status(404).redirect('/signin')
     }
 

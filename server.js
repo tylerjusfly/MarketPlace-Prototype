@@ -59,6 +59,9 @@ app.use('*', cloudinaryConfig);
 app.get('/', (req, res) => {
   res.render('index')
 })
+app.get('/test', (req, res)=> {
+  res.json({message : 'pass!'})
+})
 app.use('/', authRoute)
 
 // catch 404 and forward to error handler

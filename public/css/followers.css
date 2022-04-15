@@ -1,0 +1,10 @@
+.user-followers{
+  text-align: center;
+  display: flex;
+  gap: 40px;
+}
+
+.followers-pics{
+  width: 150px;
+  border-radius: 50%;
+}

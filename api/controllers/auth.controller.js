@@ -52,6 +52,7 @@ exports.Signin = async(req, res, next) => {
     // else create session
     req.session.userId = user._id
     return res.redirect('/dashboard')
+    // return res.json(user)
     
     
   } catch (err) {
