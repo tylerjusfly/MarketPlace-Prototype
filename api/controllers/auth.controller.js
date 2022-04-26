@@ -47,7 +47,7 @@ exports.Signin = async(req, res, next) => {
     if(!user) { throw createError(404, "Invalid User Credentials")}
 
     const matchPass = bcrypt.compare(password, user.password)
-    if(!matchPass){throw createError(400, "Invalid User Credentials")}
+    if(!matchPass){throw createError(400, "Invalid password Credentials")}
 
     // else create session
     req.session.userId = user._id

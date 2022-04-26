@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -34,5 +34,119 @@
 
   </section>
   
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/auth.css">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div class="col-xxl-9 col-lg-8">
+    <div class="profile-wrapper mb-30">
+      <div class="profile-cover">
+        <img
+          src="assets/images/profile/profile-cover.jpg"
+          alt="cover-image"
+        />
+        <div class="update-image">
+          <input type="file" />
+          <label for=""
+            ><i class="lni lni-camera"></i> Edit Cover Photo
+          </label>
+        </div>
+      </div>
+      <div class="d-md-flex">
+        <div class="profile-photo">
+          <div class="image">
+            <img
+              src=<%= user.profilepicture %>
+              alt="profile"
+            />
+            <div class="update-image">
+              <input type="file" />
+              <label for=""><i class="lni lni-camera"></i></label>
+            </div>
+          </div>
+          <div class="profile-meta pt-25">
+            <h5 class="text-bold mb-10"><%= user.username %></h5>
+            <p class="text-sm"><%= user.email %></p>
+          </div>
+        </div>
+        <div class="profiles-activities w-100 pt-30">
+          <ul class="d-flex align-items-center">
+            <li class="mr-30">
+              <p><strong>234</strong> Posts</p>
+            </li>
+            <li class="mr-30">
+              <p><strong><%= user.followers.length %></strong> Followers</p>
+            </li>
+            <li class="mr-30">
+              <p><strong><%= user.following.length %></strong> Following</p>
+            </li>
+            <li class="ms-auto">
+              <div class="more-btn-wrapper">
+                <button
+                  class="more-btn dropdown-toggle"
+                  id="moreAction"
+                  data-bs-toggle="dropdown"
+                  aria-expanded="false"
+                >
+                  <i class="lni lni-more-alt"></i>
+                </button>
+                <ul
+                  class="dropdown-menu dropdown-menu-end"
+                  aria-labelledby="moreAction"
+                >
+                  <li class="dropdown-item">
+                    <a href="#0" class="text-gray">Add All</a>
+                  </li>
+                  <li class="dropdown-item">
+                    <a href="#0" class="text-gray">Remove All</a>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="profile-info">
+        <h5 class="text-bold mb-15">About Me</h5>
+        <p class="text-sm mb-30">
+          Hello there, I am an expert Web & UI/UX Designer. I am a
+          full-time Freelancer and my passion is to satisfy my buyers
+          by giving 100% best quality work. I will Design Landing
+          page, UI/UX Design, web template design E-mail template
+          design Flyer Design, All Print Media Design, etc..
+          <a href="#0" class="text-medium text-dark">[Read More]</a>
+        </p>
+  
+        <ul class="socials">
+          <li>
+            <a href="#0"><i class="lni lni-facebook-filled"></i></a>
+          </li>
+          <li>
+            <a href="#0"><i class="lni lni-twitter-filled"></i></a>
+          </li>
+          <li>
+            <a href="#0"><i class="lni lni-instagram-filled"></i></a>
+          </li>
+          <li>
+            <a href="#0"><i class="lni lni-behance-original"></i></a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <!-- end card -->
+    
+    <!-- end card -->
+  </div>
 </body>
 </html>
